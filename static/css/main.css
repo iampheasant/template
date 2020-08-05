@@ -1,0 +1,161 @@
+@import './reset.css';
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
+
+/*標題*/
+.slgon{
+	height: 5vh;
+	width: 100vw;
+	background-color: #FADEDE;
+	float: top;
+	text-align: center;
+	line-height: 5vh;
+	font-size: 110%;
+	font-weight: bold;
+	font-family: 微軟正黑體;
+	color: #006030;
+}
+/*內文*/
+.content{
+	height: 100vh;
+	width: 100vw;
+
+	text-align: center;
+}
+/*確定類按鈕*/
+.determin{
+	height: 6vh;
+	width: 10vw;
+	background-color: #006030;
+	float: bottom: 0;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+    margin-top: 3vh;
+}
+.determin:hover{
+	background-color: #004724
+}
+/*增加類按鈕*/
+.add{
+	height: 6vh;
+	width: 25vw;
+	background-color: #69C994;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+    margin-top: 2vh;
+}
+.add[type="submit"]{
+	height: 6vh;
+	width: 10vw;
+}
+.add:hover{
+	background-color: #5BB081;
+}
+/*取消刪除類按鈕*/
+.cancel{
+	height: 6vh;
+	width: 10vw;
+	background-color: #D18C9A;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+    margin-top: 2vh;
+}
+.cancel:hover{
+	background-color: #B87B87;
+}
+/*普通文字*/
+.word{
+	height: 5vh;
+	width: 80vw;
+	line-height: 5vh;
+	font-size: 110%;
+	font-family: 微軟正黑體;
+	color: #006030;
+}
+/*form表單inp裡的input*/
+.inp>input{
+	height: 7vh;
+	width: 50vw;
+	font-size: 110%;
+	font-family: 微軟正黑體;
+	border: 1.5px solid #B7E8C6;
+	padding-left: 1vw;
+	border-radius: 	5px;
+	box-sizing: border-box;
+	margin-top: 3vh;
+}
+.inp>input:focus{
+	border: 1.5px solid #9DC7AA;
+}
+.inp>input[type="file"]{
+	display: inline;
+	height: 7vh;
+	width: 50vw;
+	font-size: 110%;
+	font-family: 微軟正黑體;
+	background-color: #fff;
+	border: 1.5px solid #B7E8C6;
+	padding-left: 1vw;
+	border-radius: 	5px;
+	box-sizing: border-box;
+	margin-top: 3vh;
+}
+.inp>input[type="button"]{
+	height: 6vh;
+	width: 25vw;
+	background-color: #69C994;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+    margin-top: 2vh;
+}
+.inp>input[type="button"]:hover{
+	background-color: #5BB081;
+}
+/*靠左*/
+.left{
+	text-align: left;
+}
+/*表格*/
+.table th,.table tr{
+	border-collapse: collapse;
+	width: 100vw;
+	line-height: 5vh;
+	font-size: 110%;
+	font-family: 微軟正黑體;
+	border: none;
+}
+.table>table th{
+	background-color: #B7E8C6;
+}
+.table>table tr:nth-child(even){
+	background-color: #FFF;
+}
+.table>table tr:nth-child(odd){
+	background-color: #E4FFEE;
+}
+.table>table tr:hover{
+	background-color: #CAE3D3;
+}
