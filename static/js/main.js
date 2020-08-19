@@ -1,17 +1,20 @@
 var firebaseConfig  = {
-    apiKey: "",	//api-key
-	authDomain: "",	//project-id.firebaseapp.com
-	databaseURL: "",	//https://project-id.firebaseio.com
-	projectId: "",	//project-id
-	storageBucket: "",	//project-id.appspot.com
-	messagingSenderId: "",	//sender-id
-	appID: "",	//app-id
+    apiKey: "api-key",	//api-key
+	authDomain: "test1-73089.firebaseapp.com",	//project-id.firebaseapp.com
+	databaseURL: "https://test1-73089.firebaseio.com/",	//https://project-id.firebaseio.com
+	projectId: "test1-73089",	//project-id
+	storageBucket: "test1-73089.appspot.com",	//project-id.appspot.com
+	messagingSenderId: "sender-id",	//sender-id
+	appID: "app-id",	//app-id
 };
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
 
 //第一頁中按"目標金額增加"，增加input的數量
 var input_count = 0;
+var d = new Date();
+var t = d.getTime();
+var counter = t;
 function addInput(obj)
 {
 	input_count++;
@@ -22,14 +25,23 @@ function addInput(obj)
 	new_element.setAttribute("id","threshold_" + input_count);
 	//最後再使用appendChild加到要加的form裡
 	obj.form.appendChild(new_element);
-	var s = document.createElement("br");
-	obj.form.appendChild(s);
+}
+//第一頁中按"目標金額刪除"，減少input的數量
+function cutInput(obj) {
+	if (input_count>=1) {
+		var str = document.getElementById("threshold_" + input_count);
+		str.remove();
+		input_count--;
+	}
+	else{
+		return false;
+	}
 }
 //第一頁中按"確定"，將門檻寫入firebase，並跳到第二頁
 function addThreshold(threshold) {
 	//加入for
-	db.ref('addThreshold/' + input_count).push({
-		threshold: document.getElementById("threshold").value
+	db.ref('addThreshold/').push({
+		threshold: document.getElementById("threshold_" + input_count).value
 	})
 	.then(function () {
 		window.location.assign("page_2");
@@ -39,13 +51,24 @@ function addThreshold(threshold) {
 function btnGoPage4() {
 	window.location.assign("page_4");
 }
+
+function tes() {
+	var addList = firebase.database().ref('addList/');
+	//on 隨時監聽
+	addList.on('value', function (snapshot) {
+	    alert(snapshot.val());
+	})
+}
+
 //第二頁中按"確定拆分"，跳到第三頁，(並執行python的部分(尚未加入))
 function split() {
 	window.location.assign("page_3");
 }
 //第四頁中按"新增"，增加商品詳細資訊進資料庫，跳出新增成功視窗並刷新頁面
 function addList(img, name, price, must_items, buyable_items) {
-	db.ref('addList/').push({
+	counter++;
+	console.log(counter);
+	db.ref('addList/' + counter).set({
 		img: document.getElementById("img").value, 
 		name: document.getElementById("name").value, 
 		price: document.getElementById("price").value, 

@@ -5,7 +5,7 @@ app = Flask(__name__)
 bootstrap = Bootstrap()
 
 #render_template將會找尋html檔案傳送給使用者
-@app.route("/")
+@app.route("/page_1")
 def page_1():
     return render_template("page_1.html")
 

@@ -3,13 +3,13 @@
 
 /*標題*/
 .slgon{
-	height: 5vh;
+	height: 7vh;
 	width: 100vw;
 	background-color: #FADEDE;
 	float: top;
 	text-align: center;
-	line-height: 5vh;
-	font-size: 110%;
+	line-height: 7vh;
+	font-size: 150%;
 	font-weight: bold;
 	font-family: 微軟正黑體;
 	color: #006030;
@@ -18,20 +18,19 @@
 .content{
 	height: 100vh;
 	width: 100vw;
-
 	text-align: center;
 }
 /*確定類按鈕*/
 .determin{
-	height: 6vh;
-	width: 10vw;
+	height: 8vh;
+	width: 15vw;
 	background-color: #006030;
 	float: bottom: 0;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: 140%;
 	font-family: 微軟正黑體;
     color: white;
     border-radius: 	5px;
@@ -42,36 +41,32 @@
 }
 /*增加類按鈕*/
 .add{
-	height: 6vh;
-	width: 25vw;
+	height: 8vh;
+	width: 20vw;
 	background-color: #69C994;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: 140%;
 	font-family: 微軟正黑體;
     color: white;
     border-radius: 	5px;
     margin-top: 2vh;
-}
-.add[type="submit"]{
-	height: 6vh;
-	width: 10vw;
 }
 .add:hover{
 	background-color: #5BB081;
 }
 /*取消刪除類按鈕*/
 .cancel{
-	height: 6vh;
-	width: 10vw;
+	height: 8vh;
+	width: 20vw;
 	background-color: #D18C9A;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: 140%;
 	font-family: 微軟正黑體;
     color: white;
     border-radius: 	5px;
@@ -82,51 +77,52 @@
 }
 /*普通文字*/
 .word{
-	height: 5vh;
-	width: 80vw;
-	line-height: 5vh;
-	font-size: 110%;
+	height: 7vh;
+	width: 85vw;
+	line-height: 7vh;
+	font-size: 150%;
 	font-family: 微軟正黑體;
 	color: #006030;
 }
 /*form表單inp裡的input*/
 .inp>input{
-	height: 7vh;
+	height: 9vh;
 	width: 50vw;
-	font-size: 110%;
+	font-size: 150%;
 	font-family: 微軟正黑體;
 	border: 1.5px solid #B7E8C6;
-	padding-left: 1vw;
+	padding-left: 2vw;
 	border-radius: 	5px;
 	box-sizing: border-box;
-	margin-top: 3vh;
+	margin-top: 2vh;
 }
 .inp>input:focus{
 	border: 1.5px solid #9DC7AA;
 }
 .inp>input[type="file"]{
 	display: inline;
-	height: 7vh;
+	height: 9vh;
 	width: 50vw;
-	font-size: 110%;
+	font-size: 150%;
 	font-family: 微軟正黑體;
 	background-color: #fff;
 	border: 1.5px solid #B7E8C6;
-	padding-left: 1vw;
+	padding-left: 2vw;
 	border-radius: 	5px;
 	box-sizing: border-box;
-	margin-top: 3vh;
+	margin-top: 2vh;
 }
 .inp>input[type="button"]{
-	height: 6vh;
-	width: 25vw;
+	height: 8vh;
+	width: 20vw;
 	background-color: #69C994;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: 140%;
 	font-family: 微軟正黑體;
+	padding-left: 0;
     color: white;
     border-radius: 	5px;
     margin-top: 2vh;
@@ -142,13 +138,14 @@
 .table th,.table tr{
 	border-collapse: collapse;
 	width: 100vw;
-	line-height: 5vh;
-	font-size: 110%;
+	line-height: 10vh;
+	font-size: 130%;
 	font-family: 微軟正黑體;
 	border: none;
 }
 .table>table th{
 	background-color: #B7E8C6;
+	font-size: 120%;
 }
 .table>table tr:nth-child(even){
 	background-color: #FFF;
@@ -158,4 +155,10 @@
 }
 .table>table tr:hover{
 	background-color: #CAE3D3;
+}
+/*圖片格式*/
+/*.img{
+	height: 45vh;
+	width: 45vw;
+	margin-top: 1vh;
 }
