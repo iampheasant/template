@@ -16,12 +16,23 @@
 			<br>
 			<label class="word">請輸入欲拆分的目標金額</label>
 		</div>
-		<div class="">
-			<form class="inp">
-				<input type="button" value="目標金額增加" onclick="addInput(this)">
-				<br>
-				<input type="text" placeholder="請輸入金額" id="threshold_0">
-			</form>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="row">
+						<div class="col-md-6">
+							<form class="inp">
+								<input type="button" value="目標金額增加" onclick="addInput(this)">
+								<br>
+								<input type="text" placeholder="請輸入金額" id="threshold_0">
+							</form>
+						</div>
+						<div class="col-md-6">
+							<button type="submit" class="cancel" onclick="cutInput()">目標金額刪除</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div>
 			<button type="submit" class="determin" onclick="addThreshold()">確定</button>
