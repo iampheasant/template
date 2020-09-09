@@ -17,14 +17,17 @@ var t = d.getTime();
 var counter = t;
 function addInput(obj)
 {
-	input_count++;
-	var new_element = document.createElement("input");
-	//設定這個input的屬性
-	new_element.setAttribute("type","text");
-	new_element.setAttribute("placeholder","請輸入金額");
-	new_element.setAttribute("id","threshold_" + input_count);
-	//最後再使用appendChild加到要加的form裡
-	obj.form.appendChild(new_element);
+	if (input_count < 4) {
+		input_count++;
+		var new_element = document.createElement("input");
+		//設定這個input的屬性
+		new_element.setAttribute("type","text");
+		new_element.setAttribute("placeholder","請輸入金額");
+		new_element.setAttribute("id","threshold_" + input_count);
+		//最後再使用appendChild加到要加的form裡
+		obj.form.appendChild(new_element);
+	}
+	
 }
 //第一頁中按"目標金額刪除"，減少input的數量
 function cutInput(obj) {
@@ -37,21 +40,14 @@ function cutInput(obj) {
 		return false;
 	}
 }
-//第一頁中按"確定"，將門檻寫入firebase，並跳到第二頁
-function addThreshold(threshold) {
-	//加入for
-	db.ref('addThreshold/').push({
-		threshold: document.getElementById("threshold_" + input_count).value
-	})
-	.then(function () {
-		window.location.assign("page_2");
-	});
-}
 //第二頁中按"新增商品"，前往第四頁
 function btnGoPage4() {
 	window.location.assign("page_4");
 }
-
+function add() {
+	document.getElementById('all_light').style.display = 'block';
+	document.getElementById('contes').style.display = 'block';
+ }
 function tes() {
 	var addList = firebase.database().ref('addList/');
 	//on 隨時監聽
@@ -62,7 +58,17 @@ function tes() {
 
 //第二頁中按"確定拆分"，跳到第三頁，(並執行python的部分(尚未加入))
 function split() {
-	window.location.assign("page_3");
+	window.location.assign("page_1");
+}
+//第一頁中按"確定"，將門檻寫入firebase，並跳到第二頁
+function addThreshold(threshold) {
+	//加入for
+	db.ref('addThreshold/' + counter).set({
+		threshold: document.getElementById("threshold_" + input_count).value
+	})
+	.then(function () {
+		window.location.assign("page_3");
+	});
 }
 //第四頁中按"新增"，增加商品詳細資訊進資料庫，跳出新增成功視窗並刷新頁面
 function addList(img, name, price, must_items, buyable_items) {
