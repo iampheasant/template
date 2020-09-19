@@ -14,7 +14,7 @@ var db = firebase.database();
 var input_count = 0;
 var d = new Date();
 var t = d.getTime();
-var counter = t;
+var counter = -1;
 function addInput(obj)
 {
 	if (input_count < 4) {
@@ -63,6 +63,7 @@ function split() {
 //第一頁中按"確定"，將門檻寫入firebase，並跳到第二頁
 function addThreshold(threshold) {
 	//加入for
+	counter++;
 	db.ref('addThreshold/' + counter).set({
 		threshold: document.getElementById("threshold_" + input_count).value
 	})
@@ -70,9 +71,14 @@ function addThreshold(threshold) {
 		window.location.assign("page_3");
 	});
 }
+function ShowTime(){
+	document.getElementById('showbox').innerHTML = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate() + "/&nbsp" + d.getHours() + ":" + d.getMinutes();
+}
 //第四頁中按"新增"，增加商品詳細資訊進資料庫，跳出新增成功視窗並刷新頁面
 function addList(img, name, price, must_items, buyable_items) {
 	counter++;
+	console.log(d);
+	console.log(t);
 	console.log(counter);
 	db.ref('addList/' + counter).set({
 		img: document.getElementById("img").value, 
