@@ -3,132 +3,211 @@
 
 /*標題*/
 .slgon{
-	height: 7vh;
-	width: 100vw;
-	background-color: #FADEDE;
-	float: top;
+	top:0;/*高度*/
+	height: 7%;
+	width: 100%;
+	background-color: #fe5722;
 	text-align: center;
-	line-height: 7vh;
-	font-size: 150%;
+	line-height: normal;
+	font-size: 100%;
 	font-weight: bold;
 	font-family: 微軟正黑體;
-	color: #006030;
+	color: #FFF;
+}
+
+.navbar{
+	background-color: #fe5722;
+	text-align: center;
+	font-family: 微軟正黑體;
+	color: #FFF;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.top {
+	position:fixed;/*位置固定*/
+	top:0;/*高度*/
+	left: 10%;/*左邊間隔*/
+	right: 10%;/*右邊間隔*/
+	vmax-width:90%;/*寬度*/
+	height: 6%;/*高度*/
+	z-index: 10000;/*負值*/
+	background-color:rgb(64, 166, 97);
+	border-width: 1px;
+	border-style: solid;
+	padding: 15px;
+	font-size: 2vw;
+	font-size:2vmin;
+	white-space:nowrap;
 }
 /*內文*/
 .content{
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	margin-top: 50px;
+}
+.content_2{
+	height: 100%;
+	width: 100%;
 	text-align: center;
 }
 /*確定類按鈕*/
+.bt{
+	width: 25%;
+	background-color: #fe5722;
+    border: 1px solid #fff;
+    text-align: center;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+	padding: 3%;
+}
+.bt:hover{
+	background-color: #fff;
+    border: 1px solid #fe5722;
+    color: #fe5722;
+}
 .determin{
-	height: 8vh;
-	width: 15vw;
-	background-color: #006030;
+	height: 10%;
+	width: 90%;
+	background-color: #fe5722;
 	float: bottom: 0;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 140%;
+    font-size: 100%;
 	font-family: 微軟正黑體;
     color: white;
     border-radius: 	5px;
-    margin-top: 3vh;
-}
-.determin:hover{
-	background-color: #004724
+    margin-top: 2%;
 }
 /*增加類按鈕*/
 .add{
-	height: 8vh;
-	width: 20vw;
-	background-color: #69C994;
+	height: 10%;
+	width: 90%;
+	background-color: #26ab9a;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 140%;
+    font-size: 100%;
 	font-family: 微軟正黑體;
     color: white;
     border-radius: 	5px;
-    margin-top: 2vh;
-}
-.add:hover{
-	background-color: #5BB081;
+    margin-top: 2%;
 }
 /*取消刪除類按鈕*/
 .cancel{
-	height: 8vh;
-	width: 20vw;
-	background-color: #D18C9A;
+	height: 10%;
+	width: 90%;
+	background-color: #bababa;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 140%;
+    font-size: 100%;
 	font-family: 微軟正黑體;
     color: white;
     border-radius: 	5px;
-    margin-top: 2vh;
+    margin-top: 2%;
 }
-.cancel:hover{
-	background-color: #B87B87;
-}
-/*普通文字*/
-.word{
-	height: 7vh;
-	width: 85vw;
-	line-height: 7vh;
-	font-size: 150%;
-	font-family: 微軟正黑體;
-	color: #006030;
-}
-/*form表單inp裡的input*/
-.inp>input{
-	height: 9vh;
-	width: 50vw;
-	font-size: 150%;
-	font-family: 微軟正黑體;
-	border: 1.5px solid #B7E8C6;
-	padding-left: 2vw;
-	border-radius: 	5px;
-	box-sizing: border-box;
-	margin-top: 2vh;
-}
-.inp>input:focus{
-	border: 1.5px solid #9DC7AA;
-}
-.inp>input[type="file"]{
-	display: inline;
-	height: 9vh;
-	width: 50vw;
-	font-size: 150%;
-	font-family: 微軟正黑體;
-	background-color: #fff;
-	border: 1.5px solid #B7E8C6;
-	padding-left: 2vw;
-	border-radius: 	5px;
-	box-sizing: border-box;
-	margin-top: 2vh;
-}
-.inp>input[type="button"]{
-	height: 8vh;
-	width: 20vw;
-	background-color: #69C994;
+#test{
+	height: 10%;
+	width: 90%;
+	background-color: #bababa;
     border: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 140%;
+    font-size: 100%;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+    margin-top: 2%;
+}
+/*普通文字*/
+.word{
+	height: 7%;
+	width: 85%;
+	line-height: normal;
+	font-size: 100%;
+	font-family: 微軟正黑體;
+	color: rgb(59, 59, 59);
+}
+/*form表單inp裡的input*/
+.inp>input{
+	height: 10%;
+	width: 90%;
+	font-size: 100%;
+	font-family: 微軟正黑體;
+	border: 1.5px solid #26ab9a;
+	padding-left: 2%;
+	border-radius: 	5px;
+	box-sizing: border-box;
+	margin-top: 2%;
+}
+.inp>input:focus{
+	border: 1.5px solid #258b7d;
+}
+.inp>input[type="file"]{
+	display: inline;
+	height: 10%;
+	width: 90%;
+	font-size: 100%;
+	font-family: 微軟正黑體;
+	background-color: #fff;
+	border: 1.5px solid #fe5722;
+	padding-left: 2%;
+	border-radius: 	5px;
+	box-sizing: border-box;
+	margin-top: 2%;
+	display:none;
+}
+.inp>input[type="text"]{
+	display: inline;
+	height: 10%;
+	width: 90%;
+	font-size: 100%;
+	font-family: 微軟正黑體;
+	background-color: #fff;
+	border: 1.5px solid #fe5722;
+	padding-left: 2%;
+	border-radius: 	5px;
+	box-sizing: border-box;
+	margin-top: 2%;
+}
+.inp>input[type="button"]{
+	height: 10%;
+	width: 90%;
+	background-color: #26ab9a;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
 	font-family: 微軟正黑體;
 	padding-left: 0;
     color: white;
     border-radius: 	5px;
-    margin-top: 2vh;
+    margin-top: 2%;
 }
-.inp>input[type="button"]:hover{
-	background-color: #5BB081;
+#imgClick{
+	height: 10%;
+	width: 90%;
+	background-color: #FFF;
+    border: 1.5px solid #fe5722;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 100%;
+	font-family: 微軟正黑體;
+	padding-left: 0;
+    color: rgb(59, 59, 59);
+    border-radius: 	5px;
+    margin-top: 2%;
 }
 /*靠左*/
 .left{
@@ -137,28 +216,46 @@
 /*表格*/
 .table th,.table tr{
 	border-collapse: collapse;
-	width: 100vw;
-	line-height: 10vh;
-	font-size: 130%;
+	width: 100%;
+	line-height: normal;
+	font-size: 100%;
 	font-family: 微軟正黑體;
 	border: none;
 }
 .table>table th{
-	background-color: #B7E8C6;
-	font-size: 120%;
+	background-color: #bababa;
+	font-size: 100%;
 }
 .table>table tr:nth-child(even){
 	background-color: #FFF;
 }
 .table>table tr:nth-child(odd){
-	background-color: #E4FFEE;
+	background-color: #e8e8e8;
 }
 .table>table tr:hover{
-	background-color: #CAE3D3;
+	background-color: #d0d0d0;
 }
-/*圖片格式*/
-/*.img{
-	height: 45vh;
-	width: 45vw;
-	margin-top: 1vh;
-}
+#all_light { /*整个弹窗的页面*/
+ opacity: 0.6; /*透明度*/
+ width: 100%; /*宽度*/
+ height: 2300px; /*高度，不能百分百*/
+ background: #000; /*背景色*/
+ position: absolute;
+ top: 0;
+ left: 0; /*定位*/
+ display: none; /*隐藏*/
+ z-index: 2; /*覆盖*/
+ }
+ #contes { /* 弹框的页面*/
+ width: 80%; /*宽度*/
+ height: 70%; /*高度*/
+ background: #fff; /*背景色*/
+ display: none; /*隐藏*/
+ z-index: 2; /*覆盖*/
+ position: absolute;
+ top: 10%;
+ left: 10%; /* 定位*/
+ }
+ input{
+ margin-bottom: 10px;
+ }
