@@ -8,18 +8,21 @@
 </head>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-<body>
+<body onload="ShowTime()">
 	<div id="all_light">
 	</div>
 	<div id="contes" style="">
-		<div class="slgon">
-		新增商品
-		</div>
-		<div class="content">
+		<nav class="navbar navbar-dark">
+			<div class="navbar-header"> 
+				<div>新增商品</div> 
+			</div>
+		</nav>
+		<div class="content_2">
 			<div class="">
 				<form class="inp">
 					<label class="left word">商品圖片:</label>
 					<input type="file" class="" id="img">
+					<input type="button" class="" value="新增圖片" id="imgClick" onclick="img.click()">
 					<br>
 					<img class="img" src="" alt="">
 
@@ -41,9 +44,12 @@
 		</div>
 	</div>
 	
-	<div class="slgon">
-		勤儉持家的好女人
-	</div>
+	<nav class="navbar navbar-dark navbar-fixed-top">
+		<div class="navbar-header"> 
+			<div>勤儉持家的好女人</div> 
+		</div>
+	</nav>
+	
 	<div class="content">
 		<div class="container-fluid">
 			<div class="row">
@@ -51,12 +57,6 @@
 			</div>
 
 			<div class="">
-				<div class="row">
-					<div class="left word col-md-10 col-md-offset-1">
-						目標金額:
-					</div>
-				</div>
-				
 				<div class="left table">
 					<table>
 						<thead>
@@ -90,11 +90,16 @@
 					</table>
 				</div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<button type="submit" class="determin" onclick="split()">確定拆分</button>
-			</div>
+			</div> -->
 		</div>
 	</div>
+	<nav class="navbar navbar-dark navbar-fixed-bottom">
+		<button class="bt">返回</button>
+		<span id="showbox"></span>
+		<button class="bt">下一步</button>
+	</nav>
 	<script type="text/javascript" src="static/js/main.js"></script>
 </body>
 </html>

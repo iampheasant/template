@@ -4,50 +4,160 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" >
 	<link rel=stylesheet type="text/css" href="static/css/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<title>勤儉持家的好女人</title>
 </head>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-<body>
-	<div class="slgon">
-		勤儉持家的好女人
+<body onload="ShowTime()">
+	<div id="all_light">
 	</div>
-	<div class="content">
-		<div class="">
-			<form class="inp">
-				<label class="word">商品圖片:</label>
-				<input type="file" class="" id="img">
-				<br>
-				<img class="img" src="" alt="">
+	<div id="contes" style="">
+		<nav class="navbar navbar-dark">
+			<div class="navbar-header"> 
+				<div>新增商品</div> 
+			</div>
+		</nav>
+		<div class="content_2">
+			<div class="">
+				<form class="inp">
+					<label class="left word">商品圖片:</label>
+					<input type="file" class="" id="img">
+					<input type="button" class="" value="新增圖片" id="imgClick" onclick="img.click()">
+					<br>
+					<img class="img" src="" alt="">
 
-				<label class="word">商品名稱:</label>
-				<input type="text" class="" placeholder="請輸入商品名稱" id="name">
+					<label class="left word">商品名稱:</label>
+					<input type="text" class="" placeholder="請輸入商品名稱" id="name">
 
-				<label class="word">商品價格:</label>
-				<input type="text" class="" placeholder="請輸入商品價格" id="price">
+					<label class="left word">商品價格:</label>
+					<input type="text" class="" placeholder="請輸入商品價格" id="price">
 
-				<label class="word">商品必買數量:</label>
-				<input type="text" class="" placeholder="請輸入商品可買數量" id="must_items">
+					<label class="left word">商品必買數量:</label>
+					<input type="text" class="" placeholder="請輸入商品可買數量" id="must_items">
 
-				<label class="word">商品可買數量:</label>
-				<input type="text" class="" placeholder="請輸入商品必買數量" id="buyable_items">
-			</form>
+					<label class="left word">商品可買數量:</label>
+					<input type="text" class="" placeholder="請輸入商品必買數量" id="buyable_items">
+				</form>
+				<button type="submit" class="add" onclick="addList()">新增</button>
+				<button type="submit" class="cancel" onclick="btnGoPage2()">返回</button>
+			</div>
 		</div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
+	</div>
+	<nav class="navbar navbar-dark navbar-fixed-top">
+		<div class="navbar-header"> 
+			<div>勤儉持家的好女人</div> 
+		</div>
+	</nav>
+	<div class="content">
+		<div id="mycarousel" class="carousel slide" data-wrap="false" data-interval="false">
+			<div class="carousel-inner">
+				<div class="item active">
+					<div>
+						<br>
+						<label class="word">請輸入欲拆分的目標金額</label>
+					</div>
+					<div class="container-fluid">
+						<form class="inp">
+							<input type="button" value="目標金額增加" onclick="addInput(this)">
+							<input type="button" value="目標金額刪除" id="test" onclick="cutInput()">
+							<br>
+							<input type="text" placeholder="請輸入金額" id="threshold_0">
+						</form>
+						<button type="submit" class="determin" onclick="addThreshold()">確定</button>
+					</div>
+				</div>
+				<div class="item">
 					<div class="row">
-						<div class="col-md-6">
-							<button type="submit" class="add" onclick="addList()">新增</button>
+						<button type="submit" class="add" onclick="add()">新增商品</button>
+					</div>
+
+					<div class="">
+						<div class="left table">
+							<table>
+								<thead>
+									<tr>
+										<th>商品圖片</th>
+										<th>商品名稱</th>
+										<th>商品價格</th>
+										<th>必買數量</th>
+										<th>可買數量</th>
+										<th>功能</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+									</tr>
+									<tr>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+										<td>data</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
-						<div class="col-md-6">
-							<button type="submit" class="cancel" onclick="btnGoPage2()">返回</button>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+						<div class="left word col-md-10 col-md-offset-1">
+							目標金額:
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="left table">
+								<table>
+									<thead>
+										<tr>
+											<th>商品圖片</th>
+											<th>商品名稱</th>
+											<th>商品價格</th>
+											<th>必買數量</th>
+											<th>可買數量</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>data</td>
+											<td>data</td>
+											<td>data</td>
+											<td>data</td>
+											<td>data</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<nav class="navbar navbar-dark navbar-fixed-bottom">
+		<a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<button class="bt">返回</button>
+		</a>
+		<span id="showbox"></span>
+		<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<button class="bt">下一步</button>
+		</a>
+	</nav>
 	<script type="text/javascript" src="static/js/main.js"></script>
 </body>
 </html>
