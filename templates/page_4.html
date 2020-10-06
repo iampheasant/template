@@ -8,22 +8,27 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>勤儉持家的好女人</title>
 </head>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-<body onload="ShowTime()">
-	<div id="all_light">
-	</div>
-	<div id="contes" style="">
-		<nav class="navbar navbar-dark">
-			<div class="navbar-header"> 
-				<div>新增商品</div> 
-			</div>
-		</nav>
-		<div class="content_2">
-			<div class="">
-				<form class="inp">
+<body>
+<!-- "serial": 編號, "price": 價錢, "number": 數量, "name": 名稱 -->
+	<!-- 新增商品的視窗 -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<label class="modal-title" id="exampleModalLabel">新增商品</label>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body content_2">
+					<form class="inp">
 					<label class="left word">商品圖片:</label>
 					<input type="file" class="" id="img">
 					<input type="button" class="" value="新增圖片" id="imgClick" onclick="img.click()">
@@ -36,25 +41,28 @@
 					<label class="left word">商品價格:</label>
 					<input type="text" class="" placeholder="請輸入商品價格" id="price">
 
-					<label class="left word">商品必買數量:</label>
-					<input type="text" class="" placeholder="請輸入商品可買數量" id="must_items">
-
-					<label class="left word">商品可買數量:</label>
-					<input type="text" class="" placeholder="請輸入商品必買數量" id="buyable_items">
+					<label class="left word">購買數量:</label>
+					<input type="text" class="" placeholder="請輸入購買數量" id="number">
 				</form>
-				<button type="submit" class="add" onclick="addList()">新增</button>
-				<button type="submit" class="cancel" onclick="btnGoPage2()">返回</button>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+					<button type="button" class="btn btn-primary" onclick="addList()">新增</button>
+				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 導覽列 -->
 	<nav class="navbar navbar-dark navbar-fixed-top">
 		<div class="navbar-header"> 
 			<div>勤儉持家的好女人</div> 
 		</div>
 	</nav>
+	<!-- 內容 -->
 	<div class="content">
 		<div id="mycarousel" class="carousel slide" data-wrap="false" data-interval="false">
 			<div class="carousel-inner">
+				<!-- 輸入金額門檻 -->
 				<div class="item active">
 					<div>
 						<br>
@@ -67,86 +75,38 @@
 							<br>
 							<input type="text" placeholder="請輸入金額" id="threshold_0">
 						</form>
-						<button type="submit" class="determin" onclick="addThreshold()">確定</button>
 					</div>
 				</div>
+				<!-- 商品清單 -->
 				<div class="item">
-					<div class="row">
-						<button type="submit" class="add" onclick="add()">新增商品</button>
-					</div>
-
-					<div class="">
-						<div class="left table">
-							<table>
-								<thead>
-									<tr>
-										<th>商品圖片</th>
-										<th>商品名稱</th>
-										<th>商品價格</th>
-										<th>必買數量</th>
-										<th>可買數量</th>
-										<th>功能</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-									</tr>
-									<tr>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-										<td>data</td>
-									</tr>
-								</tbody>
-							</table>
+					<div class="container-fluid">
+						<!-- 新增商品按鈕 -->
+						<div class="inp">
+							<br>
+							<input type="button" value="新增商品" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+							<div class="row"></div>
 						</div>
+						<br>
 					</div>
+					<!-- 卡片清單 -->
+					<div class="container-fluid">
+						<div id="cardSection" class="row relative"></div>
+					</div>	
 				</div>
+				<!-- 確認清單 -->
 				<div class="item">
 					<div class="row">
-						<div class="left word col-md-10 col-md-offset-1">
-							目標金額:
+						<div>
+							<br>
+							<label class="word">目標金額:</label>
 						</div>
 					</div>
-					
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-							<div class="left table">
-								<table>
-									<thead>
-										<tr>
-											<th>商品圖片</th>
-											<th>商品名稱</th>
-											<th>商品價格</th>
-											<th>必買數量</th>
-											<th>可買數量</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>data</td>
-											<td>data</td>
-											<td>data</td>
-											<td>data</td>
-											<td>data</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
+					<div id="cardSection_2" class="relative"></div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 底部導覽列 -->
 	<nav class="navbar navbar-dark navbar-fixed-bottom">
 		<a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
