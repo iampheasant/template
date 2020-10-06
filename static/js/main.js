@@ -10,11 +10,17 @@ var firebaseConfig  = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
 
-//第一頁中按"目標金額增加"，增加input的數量
 var input_count = 0;
 var d = new Date();
 var t = d.getTime();
 var counter = -1;
+//onload所有需要的function
+window.onload = function(){
+	readGoods();
+	readGoods_2();
+	ShowTime();
+}
+//第一頁中按"目標金額增加"，增加input的數量
 function addInput(obj)
 {
 	if (input_count < 4) {
@@ -40,42 +46,62 @@ function cutInput(obj) {
 		return false;
 	}
 }
-//第二頁中按"新增商品"，前往第四頁
-function btnGoPage4() {
-	window.location.assign("page_4");
-}
-function add() {
-	document.getElementById('all_light').style.display = 'block';
-	document.getElementById('contes').style.display = 'block';
- }
-function tes() {
-	var addList = firebase.database().ref('addList/');
-	//on 隨時監聽
-	addList.on('value', function (snapshot) {
-	    alert(snapshot.val());
-	})
-}
+//從資料庫讀取商品內容，並以card逐個顯示
+function readGoods() {
+	var goods = firebase.database().ref("addList");
+	goods.on("child_added",function(data){
+		var goodsValue = data.val();
 
-//第二頁中按"確定拆分"，跳到第三頁，(並執行python的部分(尚未加入))
-function split() {
-	window.location.assign("page_1");
-}
-//第一頁中按"確定"，將門檻寫入firebase，並跳到第二頁
-function addThreshold(threshold) {
-	//加入for
-	counter++;
-	db.ref('addThreshold/' + counter).set({
-		threshold: document.getElementById("threshold_" + input_count).value
-	})
-	.then(function () {
-		window.location.assign("page_3");
+		document.getElementById("cardSection").innerHTML+=
+		`
+			<div class="card border-secondary mb-3">
+				<div class="row">
+					<div class="col-4">
+						<img src="" style="width:35%" class="ll">
+					</div>
+					<div class="col-6">
+						<p class="card-text left">商品: ${goodsValue.name}</p>
+						<p class="card-text left">價格: ${goodsValue.price}元</p>
+						<p class="card-text left">數量: ${goodsValue.number}元</p>
+					</div>
+					<div class="col-2">
+						<button onclick="updateGoods()">編</button>
+						<button onclick="deleteGoods(${goodsValue.id})">刪</button>
+					</div>	
+				</div>
+			</div>
+		`
 	});
 }
+//從資料庫讀取商品內容，並以card逐個顯示
+function readGoods_2() {
+	var goods = firebase.database().ref("addList");
+	goods.on("child_added",function(data){
+		var goodsValue = data.val();
+
+		document.getElementById("cardSection_2").innerHTML+=
+		`
+			<div class="card border-secondary mb-3">
+				<div class="row">
+					<div class="col-4">
+						<img src="" style="width:35%" class="ll relative">
+					</div>
+					<div class="col-8 relative">
+						<p class="card-text left">商品: ${goodsValue.name}</p>
+						<p class="card-text left">價格: ${goodsValue.price}元</p>
+						<p class="card-text left">數量: ${goodsValue.number}元</p>
+					</div>
+				</div>
+			</div>
+		`
+	});
+}
+//顯示時間
 function ShowTime(){
 	document.getElementById('showbox').innerHTML = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate() + "/&nbsp" + d.getHours() + ":" + d.getMinutes();
 }
-//第四頁中按"新增"，增加商品詳細資訊進資料庫，跳出新增成功視窗並刷新頁面
-function addList(img, name, price, must_items, buyable_items) {
+//第四頁中按"新增"，增加商品詳細資訊進資料庫，跳出新增成功視窗
+function addList(img, name, price,number) {
 	counter++;
 	console.log(d);
 	console.log(t);
@@ -83,53 +109,11 @@ function addList(img, name, price, must_items, buyable_items) {
 	db.ref('addList/' + counter).set({
 		img: document.getElementById("img").value, 
 		name: document.getElementById("name").value, 
-		price: document.getElementById("price").value, 
-		must_items: document.getElementById("must_items").value, 
-		buyable_items: document.getElementById("buyable_items").value
+		price: document.getElementById("price").value,
+		number: document.getElementById("number").value
 	})
-	.then(function () {
-			alert("新增成功");
-	})
-	.then(function () {
-		window.location.assign(window.location.href);
-	})
+	// .then(function () {
+	// 		alert("新增成功");
+	// })
 	;
 }
-//第四頁中按"返回"，前往第二頁
-function btnGoPage2() {
-	window.location.assign("page_2");
-}
-function tr() {
-	var myNameRef = firebase.database().ref('addList');
-	//on 隨時監聽
-	myNameRef.on('value', function (snapshot) {
-	    document.getElementById('price').textContent = snapshot.val();
-	    alert(snapshot.val());
-})
-}
-
-/*
-
-function tr() {
-	var messageListRef = firebase.database().ref( 'addList' );
-	var newMessageRef = messageListRef.push();
-	newMessageRef.set({
-	  'user_id' : 'ada' ,
-	  'text' : 'test.'
-	});
-	// We've appended a new message to the message_list location.
-	var path = newMessageRef.toString();
-	// path will be something like
-	// 'https://sample-app.firebaseio.com/message_list/-IKo28nwJLH0Nc5XeFmj' 
-	alert(path);
-}
-
-function trr() {
-	var myNameRef = firebase.database().ref('addList');
-	//on 隨時監聽
-	myNameRef.on('value', function (snapshot) {
-	    console.log(snapshot.val());
-	    document.getElementById('title').textContent = snapshot.val();
-})
-}
-*/
