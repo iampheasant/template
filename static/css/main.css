@@ -88,7 +88,7 @@
 .add{
 	height: 10%;
 	width: 90%;
-	background-color: #26ab9a;
+	background-color: #fe5722;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -136,6 +136,7 @@
 	font-size: 100%;
 	font-family: 微軟正黑體;
 	color: rgb(59, 59, 59);
+	margin-top: 2%;
 }
 /*form表單inp裡的input*/
 .inp>input{
@@ -143,14 +144,14 @@
 	width: 90%;
 	font-size: 100%;
 	font-family: 微軟正黑體;
-	border: 1.5px solid #26ab9a;
+	border: 1.5px solid #fe5722;
 	padding-left: 2%;
 	border-radius: 	5px;
 	box-sizing: border-box;
 	margin-top: 2%;
 }
 .inp>input:focus{
-	border: 1.5px solid #258b7d;
+	border: 1.5px solid #fe5722;
 }
 .inp>input[type="file"]{
 	display: inline;
@@ -182,7 +183,7 @@
 .inp>input[type="button"]{
 	height: 10%;
 	width: 90%;
-	background-color: #26ab9a;
+	background-color: #fe5722;
     border: none;
     text-align: center;
     text-decoration: none;
@@ -259,3 +260,39 @@
  input{
  margin-bottom: 10px;
  }
+
+ /* Modal Header */
+.modal-header {
+  text-align: center;
+  background-color: #fe5722;
+  color: white;
+  font-size: 120%;
+}
+/* Modal Body */
+.modal-body {
+}
+/* Modal Footer */
+.modal-footer {
+  color: #000;
+}
+.card {
+	width: 80%;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+}
+.ll{
+	float:left;
+	/* padding: 2%;
+ */}
+.relative{
+	position: relative;
+	left: 10%;
+}
