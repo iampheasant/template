@@ -1,20 +1,6 @@
 @import './reset.css';
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
 
-/*標題*/
-.slgon{
-	top:0;/*高度*/
-	height: 7%;
-	width: 100%;
-	background-color: #fe5722;
-	text-align: center;
-	line-height: normal;
-	font-size: 100%;
-	font-weight: bold;
-	font-family: 微軟正黑體;
-	color: #FFF;
-}
-
 .navbar{
 	background-color: #fe5722;
 	text-align: center;
@@ -23,23 +9,6 @@
     padding: 15px 15px;
     font-size: 18px;
     line-height: 20px;
-}
-
-.top {
-	position:fixed;/*位置固定*/
-	top:0;/*高度*/
-	left: 10%;/*左邊間隔*/
-	right: 10%;/*右邊間隔*/
-	vmax-width:90%;/*寬度*/
-	height: 6%;/*高度*/
-	z-index: 10000;/*負值*/
-	background-color:rgb(64, 166, 97);
-	border-width: 1px;
-	border-style: solid;
-	padding: 15px;
-	font-size: 2vw;
-	font-size:2vmin;
-	white-space:nowrap;
 }
 /*內文*/
 .content{
@@ -68,51 +37,6 @@
 	background-color: #fff;
     border: 1px solid #fe5722;
     color: #fe5722;
-}
-.determin{
-	height: 10%;
-	width: 90%;
-	background-color: #fe5722;
-	float: bottom: 0;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 100%;
-	font-family: 微軟正黑體;
-    color: white;
-    border-radius: 	5px;
-    margin-top: 2%;
-}
-/*增加類按鈕*/
-.add{
-	height: 10%;
-	width: 90%;
-	background-color: #fe5722;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 100%;
-	font-family: 微軟正黑體;
-    color: white;
-    border-radius: 	5px;
-    margin-top: 2%;
-}
-/*取消刪除類按鈕*/
-.cancel{
-	height: 10%;
-	width: 90%;
-	background-color: #bababa;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 100%;
-	font-family: 微軟正黑體;
-    color: white;
-    border-radius: 	5px;
-    margin-top: 2%;
 }
 #test{
 	height: 10%;
@@ -149,9 +73,6 @@
 	border-radius: 	5px;
 	box-sizing: border-box;
 	margin-top: 2%;
-}
-.inp>input:focus{
-	border: 1.5px solid #fe5722;
 }
 .inp>input[type="file"]{
 	display: inline;
@@ -214,53 +135,6 @@
 .left{
 	text-align: left;
 }
-/*表格*/
-.table th,.table tr{
-	border-collapse: collapse;
-	width: 100%;
-	line-height: normal;
-	font-size: 100%;
-	font-family: 微軟正黑體;
-	border: none;
-}
-.table>table th{
-	background-color: #bababa;
-	font-size: 100%;
-}
-.table>table tr:nth-child(even){
-	background-color: #FFF;
-}
-.table>table tr:nth-child(odd){
-	background-color: #e8e8e8;
-}
-.table>table tr:hover{
-	background-color: #d0d0d0;
-}
-#all_light { /*整个弹窗的页面*/
- opacity: 0.6; /*透明度*/
- width: 100%; /*宽度*/
- height: 2300px; /*高度，不能百分百*/
- background: #000; /*背景色*/
- position: absolute;
- top: 0;
- left: 0; /*定位*/
- display: none; /*隐藏*/
- z-index: 2; /*覆盖*/
- }
- #contes { /* 弹框的页面*/
- width: 80%; /*宽度*/
- height: 70%; /*高度*/
- background: #fff; /*背景色*/
- display: none; /*隐藏*/
- z-index: 2; /*覆盖*/
- position: absolute;
- top: 10%;
- left: 10%; /* 定位*/
- }
- input{
- margin-bottom: 10px;
- }
-
  /* Modal Header */
 .modal-header {
   text-align: center;
