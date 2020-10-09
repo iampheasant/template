@@ -10,6 +10,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.1/dist/sweetalert2.all.min.js"></script>
 	<title>勤儉持家的好女人</title>
 </head>
 <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
@@ -75,6 +76,24 @@
 							<br>
 							<input type="text" placeholder="請輸入金額" id="threshold_0">
 						</form>
+
+						<!-- <div class="card border-danger md-3 row">
+							<div class="">
+								<div class="col-xs-4">
+									<img src="" style="width:35%" class="">
+								</div>
+								<div class="col-xs-6">
+									<p class="card-text ">商品: ${goodsValue.name}</p>
+									<p class="card-text left">價格: ${goodsValue.price}元</p>
+									<p class="card-text left">數量: ${goodsValue.number}元</p>
+								</div>
+								<div class="col-xs-2">
+									<button onclick="updateGoods()">編</button>
+									<button onclick="deleteGoods(${goodsValue.id})">刪</button>
+								</div>
+							</div>
+						</div> -->
+						
 					</div>
 				</div>
 				<!-- 商品清單 -->
@@ -89,9 +108,7 @@
 						<br>
 					</div>
 					<!-- 卡片清單 -->
-					<div class="container-fluid">
-						<div id="cardSection" class="row relative"></div>
-					</div>	
+					<div id="cardSection"></div>
 				</div>
 				<!-- 確認清單 -->
 				<div class="item">
@@ -101,7 +118,7 @@
 							<label class="word">目標金額:</label>
 						</div>
 					</div>
-					<div id="cardSection_2" class="relative"></div>
+					<div id="cardSection_2"></div>
 				</div>
 			</div>
 		</div>
