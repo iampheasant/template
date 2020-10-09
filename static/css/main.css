@@ -65,6 +65,9 @@
 	color: rgb(59, 59, 59);
 	margin-top: 2%;
 }
+#showbox{
+	font-size: 80%;
+}
 /*form表單裡的input*/
 .inp>input{
 	height: 10%;
@@ -168,7 +171,7 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid #bababa;
 }
 /*圖片靠左*/
 .ll{
