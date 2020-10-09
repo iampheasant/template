@@ -10,6 +10,14 @@ var firebaseConfig  = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
 
+// var onResize = function(){
+//     $("body").css("margin-top",$(".navbar").height());
+// };
+// $(window).resize(onResize);
+// $(function(){
+//     onResize();
+// });
+
 var input_count = 0;
 var d = new Date();
 var t = d.getTime();
@@ -20,6 +28,12 @@ window.onload = function(){
 	readGoods_2();
 	ShowTime();
 }
+//調整內容的頂高
+function Resize() {
+	$("body").css("margin-top",$(".navbar").height())
+	$("body").css("margin-bottom",$(".navbar").height());
+}
+$(window).resize(Resize);
 //第一頁中按"目標金額增加"，增加input的數量
 function addInput(obj)
 {
@@ -54,20 +68,20 @@ function readGoods() {
 
 		document.getElementById("cardSection").innerHTML+=
 		`
-			<div class="card border-secondary mb-3">
-				<div class="row">
-					<div class="col-4">
-						<img src="" style="width:35%" class="ll">
+			<div class="card border-secondary md-3 relative">
+				<div class="">
+					<div class="col-xs-4">
+						<img src="" style="width:35%" class="">
 					</div>
-					<div class="col-6">
+					<div class="col-xs-6">
 						<p class="card-text left">商品: ${goodsValue.name}</p>
 						<p class="card-text left">價格: ${goodsValue.price}元</p>
 						<p class="card-text left">數量: ${goodsValue.number}元</p>
 					</div>
-					<div class="col-2">
-						<button onclick="updateGoods()">編</button>
-						<button onclick="deleteGoods(${goodsValue.id})">刪</button>
-					</div>	
+					<div class="col-xs-2">
+						<div><button onclick="updateGoods()">編</button></div>
+						<div><button onclick="deleteGoods(${goodsValue.id})">刪</button></div>
+					</div>
 				</div>
 			</div>
 		`
@@ -81,12 +95,12 @@ function readGoods_2() {
 
 		document.getElementById("cardSection_2").innerHTML+=
 		`
-			<div class="card border-secondary mb-3">
-				<div class="row">
-					<div class="col-4">
-						<img src="" style="width:35%" class="ll relative">
+			<div class="card border-secondary md-3 relative">
+				<div class="">
+					<div class="col-xs-4">
+						<img src="" style="width:35%" class="">
 					</div>
-					<div class="col-8 relative">
+					<div class="col-xs-8">
 						<p class="card-text left">商品: ${goodsValue.name}</p>
 						<p class="card-text left">價格: ${goodsValue.price}元</p>
 						<p class="card-text left">數量: ${goodsValue.number}元</p>
@@ -112,8 +126,13 @@ function addList(img, name, price,number) {
 		price: document.getElementById("price").value,
 		number: document.getElementById("number").value
 	})
-	// .then(function () {
-	// 		alert("新增成功");
-	// })
+	.then(function () {
+		Swal.fire({
+			icon: 'success',
+			title: '商品新增成功',
+			showConfirmButton: false,
+			timer: 1500
+		});
+	})
 	;
 }
