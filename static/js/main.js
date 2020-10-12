@@ -71,16 +71,20 @@ function readGoods() {
 			<div class="card border-secondary md-3 relative">
 				<div class="">
 					<div class="col-xs-4">
-						<img src="" style="width:35%" class="">
+						<img src="" style="width:100%" class="">
 					</div>
-					<div class="col-xs-6">
-						<p class="card-text left">商品: ${goodsValue.name}</p>
+					<div class="col-xs-8">
+						<div class="row">
+							<div class="col-xs-9"><p class="card-text left">商品: ${goodsValue.name}</p></div>
+							<div class="col-xs-3"><button id="updateG" onclick="updateGoods()">編</button></div>
+						</div>
+						
 						<p class="card-text left">價格: ${goodsValue.price}元</p>
-						<p class="card-text left">數量: ${goodsValue.number}元</p>
-					</div>
-					<div class="col-xs-2">
-						<div><button onclick="updateGoods()">編</button></div>
-						<div><button onclick="deleteGoods(${goodsValue.id})">刪</button></div>
+						<div class="row">
+							<div class="col-xs-9"><p class="card-text left">數量: ${goodsValue.number}個</p></div>
+							<div class="col-xs-3"><button id="deleteG" onclick="deleteGoods(${goodsValue.id})">刪</button></div>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -98,12 +102,12 @@ function readGoods_2() {
 			<div class="card border-secondary md-3 relative">
 				<div class="">
 					<div class="col-xs-4">
-						<img src="" style="width:35%" class="">
+						<img src="" style="width:100%" class="">
 					</div>
 					<div class="col-xs-8">
 						<p class="card-text left">商品: ${goodsValue.name}</p>
 						<p class="card-text left">價格: ${goodsValue.price}元</p>
-						<p class="card-text left">數量: ${goodsValue.number}元</p>
+						<p class="card-text left">數量: ${goodsValue.number}個</p>
 					</div>
 				</div>
 			</div>
@@ -131,7 +135,7 @@ function addList(img, name, price,number) {
 			icon: 'success',
 			title: '商品新增成功',
 			showConfirmButton: false,
-			timer: 1500
+			timer: 1200
 		});
 	})
 	;
