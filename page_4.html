@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" >
+	<link rel=stylesheet type="text/css" href="static/css/main.css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.1/dist/sweetalert2.all.min.js"></script>
+	<title>勤儉持家的好女人</title>
+</head>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+<body>
+<!-- "serial": 編號, "price": 價錢, "number": 數量, "name": 名稱 -->
+	<!-- 新增商品的視窗 -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<label class="modal-title" id="exampleModalLabel">新增商品</label>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body content_2">
+					<form class="inp">
+					<label class="left word">商品圖片:</label>
+					<input type="file" class="" id="img">
+					<input type="button" class="" value="新增圖片" id="imgClick" onclick="img.click()">
+					<br>
+					<img class="img" src="" alt="">
+
+					<label class="left word">商品名稱:</label>
+					<input type="text" class="" placeholder="請輸入商品名稱" id="name">
+
+					<label class="left word">商品價格:</label>
+					<input type="text" class="" placeholder="請輸入商品價格" id="price">
+
+					<label class="left word">購買數量:</label>
+					<input type="text" class="" placeholder="請輸入購買數量" id="number">
+				</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+					<button type="button" class="btn btn-primary" onclick="addList()">新增</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 導覽列 -->
+	<nav class="navbar navbar-dark navbar-fixed-top">
+		<div class="navbar-header"> 
+			<div>勤儉持家的好女人</div> 
+		</div>
+	</nav>
+	<!-- 內容 -->
+	<div class="content">
+		<div id="mycarousel" class="carousel slide" data-wrap="false" data-interval="false">
+			<div class="carousel-inner">
+				<!-- 輸入金額門檻 -->
+				<div class="item active">
+					<div>
+						<br>
+						<label class="word">請輸入目標購物金額</label>
+					</div>
+					<div class="container-fluid">
+						<form class="inp">
+							<input type="button" value="新增一筆目標金額" onclick="addInput(this)">
+							<input type="button" value="刪除一筆目標金額" id="test" onclick="cutInput()">
+							<br>
+							<input type="text" placeholder="請輸入目標金額" id="threshold_0">
+						</form>						
+					</div>
+				</div>
+				<!-- 商品清單 -->
+				<div class="item">
+					<div class="container-fluid">
+						<!-- 新增商品按鈕 -->
+						<div class="inp">
+							<br>
+							<input type="button" value="新增商品" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+							<div class="row"></div>
+						</div>
+						<br>
+					</div>
+					<!-- 卡片清單 -->
+					<div id="cardSection"></div>
+				</div>
+				<!-- 確認清單 -->
+				<div class="item">
+					<div class="row">
+						<div>
+							<br>
+							<label class="word">目標金額:</label>
+						</div>
+					</div>
+					<div id="cardSection_2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 底部導覽列 -->
+	<nav class="navbar navbar-dark navbar-fixed-bottom">
+		<a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<button class="bt ll">上一步</button>
+		</a>
+		<span id="showbox"></span>
+		<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<button class="bt rr">下一步</button>
+		</a>
+	</nav>
+	<script type="text/javascript" src="static/js/main.js"></script>
+</body>
+</html>
