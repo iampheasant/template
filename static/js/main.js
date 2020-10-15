@@ -29,10 +29,10 @@ window.onload = function(){
 	ShowTime();
 }
 //調整內容的頂高
-function Resize() {
-	$("body").css("margin-top",$(".navbar").height())
-	$("body").css("margin-bottom",$(".navbar").height());
-}
+// function Resize() {
+// 	$("body").css("margin-top",$(".navbar").height())
+// 	$("body").css("margin-bottom",$(".navbar_2").height());
+// }
 $(window).resize(Resize);
 //第一頁中按"目標金額增加"，增加input的數量
 function addInput(obj)
@@ -42,7 +42,7 @@ function addInput(obj)
 		var new_element = document.createElement("input");
 		//設定這個input的屬性
 		new_element.setAttribute("type","text");
-		new_element.setAttribute("placeholder","請輸入金額");
+		new_element.setAttribute("placeholder","請輸入目標購物金額");
 		new_element.setAttribute("id","threshold_" + input_count);
 		//最後再使用appendChild加到要加的form裡
 		obj.form.appendChild(new_element);
