@@ -1,15 +1,28 @@
 @import './reset.css';
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
 
-/*導覽列*/
+/*頂端導覽列*/
 .navbar{
+	height: 7%;
 	background-color: #fe5722;
 	text-align: center;
 	font-family: 微軟正黑體;
 	color: #FFF;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
+	padding: 15px 15px;
+	font-size: 130%;
+	line-height: 20px;
+}
+/*底部導覽列*/
+.navbar_2{
+	height: 9%;
+	background-color: #fff;
+	text-align: center;
+	font-family: 微軟正黑體;
+	color: #fe5722;
+	padding: 15px 15px;
+	font-size: 130%;
+	line-height: 100%;
+	box-shadow: 0 -3px 6px 0 #e0e0e0;
 }
 /*內文*/
 .content{
@@ -27,18 +40,18 @@
 /*按鈕*/
 .bt{
 	width: 25%;
-	background-color: #fe5722;
-    border: 1px solid #fff;
-    text-align: center;
-	font-family: 微軟正黑體;
-    color: white;
-    border-radius: 	5px;
-	padding: 3%;
-}
-.bt:hover{
 	background-color: #fff;
     border: 1px solid #fe5722;
+    text-align: center;
+	font-family: 微軟正黑體;
     color: #fe5722;
+    border-radius: 	5px;
+	padding: 1.5%;
+}
+.bt:hover{
+	background-color: #fe5722;
+    border: 1px solid #fff;
+    color: #fff;
 }
 #updateG{
 	background-color: #fe5722;
@@ -82,7 +95,8 @@
 	margin-top: 2%;
 }
 #showbox{
-	font-size: 80%;
+	font-size: 90%;
+	line-height: 180%;
 }
 /*form表單裡的input*/
 .inp>input{
@@ -124,10 +138,10 @@
 	width: 90%;
 	background-color: #FFF;
     border: 1.5px solid #fe5722;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     display: inline-block;
-    font-size: 100%;
+    font-size: 110%;
 	font-family: 微軟正黑體;
 	padding-left: 0;
     color: rgb(59, 59, 59);
@@ -167,7 +181,7 @@
     border: 1px solid #bababa;
 }
 .card:hover{
-	background-color: #f0f0f0;
+	background-color: #FFE7C0;
 }
 /*圖片靠左*/
 .ll{
