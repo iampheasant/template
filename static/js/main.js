@@ -29,10 +29,9 @@ window.onload = function(){
 	ShowTime();
 }
 //調整內容的頂高
-// function Resize() {
-// 	$("body").css("margin-top",$(".navbar").height())
-// 	$("body").css("margin-bottom",$(".navbar_2").height());
-// }
+function Resize() {
+	$("body").css("margin-bottom",$(".navbar_2").height());
+}
 $(window).resize(Resize);
 //按"新增一筆目標金額"，增加input的數量
 function addInput(obj)
@@ -68,7 +67,7 @@ function readGoods() {
 
 		document.getElementById("cardSection").innerHTML+=
 		`
-			<div class="card border-secondary md-3 relative">
+			<div class="mycard md-3 relative">
 				<div class="">
 					<div class="col-xs-4">
 						<img src="" style="width:100%" class="">
@@ -76,15 +75,13 @@ function readGoods() {
 					<div class="col-xs-8">
 						<div class="row">
 							<div class="col-xs-9"><p class="card-text left">商品: ${goodsValue.name}</p></div>
-							<div class="col-xs-3"><button id="updateG" onclick="updateGoods()">編</button></div>
+							<div class="col-xs-3"><button id="updateGoods" onclick="updateGoods()">編</button></div>
 						</div>
-						
-						<p class="card-text left">價格: ${goodsValue.price}元</p>
+						<p class="card-text left" id="price_p">價格: ${goodsValue.price}元</p>
 						<div class="row">
 							<div class="col-xs-9"><p class="card-text left">數量: ${goodsValue.number}個</p></div>
-							<div class="col-xs-3"><button id="deleteG" onclick="deleteGoods(${goodsValue.id})">刪</button></div>
+							<div class="col-xs-3"><button id="deleteGoods" onclick="deleteGoods(${goodsValue.id})">刪</button></div>
 						</div>
-						
 					</div>
 				</div>
 			</div>
@@ -99,15 +96,19 @@ function readGoods_2() {
 
 		document.getElementById("cardSection_2").innerHTML+=
 		`
-			<div class="card border-secondary md-3 relative">
+			<div class="mycard md-3 relative">
 				<div class="">
 					<div class="col-xs-4">
 						<img src="" style="width:100%" class="">
 					</div>
 					<div class="col-xs-8">
-						<p class="card-text left">商品: ${goodsValue.name}</p>
-						<p class="card-text left">價格: ${goodsValue.price}元</p>
-						<p class="card-text left">數量: ${goodsValue.number}個</p>
+						<div class="row">
+							<div class="col-xs-9"><p class="card-text left">商品: ${goodsValue.name}</p></div>
+						</div>
+						<p class="card-text left" id="price_p">價格: ${goodsValue.price}元</p>
+						<div class="row">
+							<div class="col-xs-9"><p class="card-text left">數量: ${goodsValue.number}個</p></div>
+						</div>
 					</div>
 				</div>
 			</div>
