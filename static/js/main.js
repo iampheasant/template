@@ -34,7 +34,7 @@ window.onload = function(){
 // 	$("body").css("margin-bottom",$(".navbar_2").height());
 // }
 $(window).resize(Resize);
-//第一頁中按"目標金額增加"，增加input的數量
+//按"新增一筆目標金額"，增加input的數量
 function addInput(obj)
 {
 	if (input_count < 4) {
@@ -49,7 +49,7 @@ function addInput(obj)
 	}
 	
 }
-//第一頁中按"目標金額刪除"，減少input的數量
+//"刪除一筆目標金額"，減少input的數量
 function cutInput(obj) {
 	if (input_count>=1) {
 		var str = document.getElementById("threshold_" + input_count);
@@ -60,7 +60,7 @@ function cutInput(obj) {
 		return false;
 	}
 }
-//從資料庫讀取商品內容，並以card逐個顯示
+//從資料庫讀取商品內容，並以card逐個顯示，並有編輯刪除按鈕
 function readGoods() {
 	var goods = firebase.database().ref("addList");
 	goods.on("child_added",function(data){
@@ -118,7 +118,7 @@ function readGoods_2() {
 function ShowTime(){
 	document.getElementById('showbox').innerHTML = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate() + "/&nbsp" + d.getHours() + ":" + d.getMinutes();
 }
-//第四頁中按"新增"，增加商品詳細資訊進資料庫，跳出新增成功視窗
+//按"新增商品"，增加商品詳細資訊進資料庫，並跳出新增成功視窗
 function addList(img, name, price,number) {
 	counter++;
 	console.log(d);
