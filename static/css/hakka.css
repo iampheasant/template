@@ -1,0 +1,180 @@
+@import './reset.css';
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css");
+
+/*頂端導覽列*/
+.mynavbar{
+	position: relative;
+	display: flex;
+	line-height: 100%;
+	padding: 5%;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #fe5722;
+	font-family: 微軟正黑體;
+	font-size: 180%;
+	color: #FFF;
+}
+/*底部導覽列*/
+.navbar_2{
+	line-height: 100%;
+	padding: 5%;
+	align-items: center;
+	background-color: #fff;
+	text-align: center;
+	font-family: 微軟正黑體;
+	color: #fe5722;
+	box-shadow: 0 -3px 6px 0 #e0e0e0;
+}
+/*內文*/
+.content{
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	font-size: 150%;
+}
+/*按鈕*/
+.bt{
+	line-height: 100%;
+	padding: 1.5%;
+	width: 25%;
+	background-color: #fff;
+	border: 1px solid #fe5722;
+	text-align: center;
+	font-family: 微軟正黑體;
+	font-size: 180%;
+	color: #fe5722;
+	border-radius: 	5px;
+}
+.bt:hover{
+	background-color: #fe5722;
+	border: 1px solid #fff;
+	color: #fff;
+}
+#send{
+	line-height: 100%;
+	padding: 3%;
+	width: 20%;
+	background-color: #fe5722;
+	border: none;
+	text-align: center;
+	font-family: 微軟正黑體;
+	font-size: 150%;
+	color: #fff;
+	border-radius: 	5px;
+}
+#cancel{
+	line-height: 100%;
+	padding: 3%;
+	width: 20%;
+	background-color: #bababa;
+	border: none;
+	text-align: center;
+	font-family: 微軟正黑體;
+	font-size: 150%;
+	color: #fff;
+	border-radius: 	5px;
+}
+#updateGoods{
+	background-color: #fe5722;
+	border: none;
+    text-align: center;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+}
+#deleteGoods{
+	background-color: #bababa;
+	border: none;
+    text-align: center;
+	font-family: 微軟正黑體;
+    color: white;
+    border-radius: 	5px;
+}
+/*文字*/
+.word{
+	display: inline-block;
+	width: 85%;
+	text-align: left;
+	color: rgb(59, 59, 59);
+	margin-top: 2%;
+}
+/*時間*/
+#showbox{
+	line-height: 240%;
+}
+/*form表單裡的input*/
+.inp>input{
+	display: inline-block;
+	line-height: 100%;
+	padding: 5%;
+	width: 90%;
+	border: 1.5px solid #fe5722;
+	text-align: center;
+	text-decoration: none;
+	font-size: 100%;
+	font-family: 微軟正黑體;
+	color: white;
+	border-radius: 	5px;
+	margin-top: 2%;
+}
+/*form表單裡的file*/
+.inp>input[type="file"]{
+	display:none;
+}
+/*form表單裡的text*/
+.inp>input[type="text"]{
+	text-align: left;
+}
+/*form表單裡的button*/
+.inp>input[type="button"]{
+	background-color: #fe5722;
+	border: none;  
+}
+/*刪除input的按鈕*/
+#delInp{
+	background-color: #bababa;
+}
+/*圖片點擊*/
+#imgClick{
+	text-align: left;
+	background-color: #FFF;
+	border: 1.5px solid #fe5722;
+	color: rgb(117, 117, 117);
+}
+/*文字靠左*/
+.left{
+	text-align: left;
+	color: rgb(59, 59, 59);
+}
+#price_p{
+	margin-bottom: 0;
+}
+/*新增商品標題*/
+.modal-header{
+	background-color: #fe5722;
+	font-size: 180%;
+	color: white;
+}
+/*商品卡片樣式*/
+.mycard{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #bababa;
+	border-radius: 0;
+}
+.card:hover{
+	background-color: #FFE7C0;
+}
+/*圖片靠左*/
+.ll{
+	float:left;
+}
+.rr{
+	float: right;
+}
+/*相對位置*/
+.relative{
+	position: relative;
+	left: 10%;
+}
