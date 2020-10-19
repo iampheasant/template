@@ -8,7 +8,7 @@
 	line-height: 100%;
 	padding: 5%;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	background-color: #fe5722;
 	font-family: 微軟正黑體;
 	font-size: 180%;
@@ -79,7 +79,7 @@
 	border: none;
     text-align: center;
 	font-family: 微軟正黑體;
-    color: white;
+    color: #fff;
     border-radius: 	5px;
 }
 #deleteGoods{
@@ -87,7 +87,7 @@
 	border: none;
     text-align: center;
 	font-family: 微軟正黑體;
-    color: white;
+    color: #fff;
     border-radius: 	5px;
 }
 /*文字*/
@@ -113,7 +113,7 @@
 	text-decoration: none;
 	font-size: 100%;
 	font-family: 微軟正黑體;
-	color: white;
+	color: #fff;
 	border-radius: 	5px;
 	margin-top: 2%;
 }
@@ -153,7 +153,7 @@
 .modal-header{
 	background-color: #fe5722;
 	font-size: 180%;
-	color: white;
+	color: #fff;
 }
 /*商品卡片樣式*/
 .mycard{
@@ -177,4 +177,18 @@
 .relative{
 	position: relative;
 	left: 10%;
+}
+#myCarousel{
+	transform: translateX(-100%);
+	transition: transform .35s ease;
+	display: block;
+	height: 100%;
+	width: 100%;
+	min-height: 100%;
+	background-color: #fff;
+	z-index: 9999;
+}
+
+#myCarousel.menu-show{
+	transform: translateX(0%);
 }
