@@ -10,14 +10,6 @@ var firebaseConfig  = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
 
-// var onResize = function(){
-//     $("body").css("margin-top",$(".navbar").height());
-// };
-// $(window).resize(onResize);
-// $(function(){
-//     onResize();
-// });
-
 var input_count = 0;
 var d = new Date();
 var t = d.getTime();
@@ -33,6 +25,22 @@ function Resize() {
 	$("body").css("margin-bottom",$(".navbar_2").height());
 }
 $(window).resize(Resize);
+//跳到內容頁面
+function index() {
+	window.location.assign("index");
+}
+//跳到註冊頁面
+function reg() {
+	window.location.assign("reg");
+}
+//跳到登入頁面
+function sign() {
+	window.location.assign("sign");
+}
+//跳到登入頁面
+function guest() {
+	window.location.assign("guest");
+}
 //按"新增一筆目標金額"，增加input的數量
 function addInput(obj)
 {
@@ -48,7 +56,7 @@ function addInput(obj)
 	}
 	
 }
-//"刪除一筆目標金額"，減少input的數量
+//按"刪除一筆目標金額"，減少input的數量
 function cutInput(obj) {
 	if (input_count>=1) {
 		var str = document.getElementById("threshold_" + input_count);
@@ -141,3 +149,11 @@ function addList(img, name, price,number) {
 	})
 	;
 }
+//導覽列動畫
+const $menu = $('#myCarousel');
+$menu.on('show.bs.collapse', function () {
+  $menu.addClass('menu-show');
+});
+$menu.on('hide.bs.collapse', function () {
+  $menu.removeClass('menu-show');
+});
