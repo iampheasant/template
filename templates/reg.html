@@ -31,11 +31,17 @@
 		</nav>
 		<div class="collapse position-fixed" id="myCarousel">
 			<nav class="mynavbar navbar-dark">
-				<label>會員登入</label>
+				<label>訪客登入</label>
 			</nav>
-			<div class="content left relative">
-				<div onclick="reg()">註冊</div>
-				<div onclick="sign()">登入</div>
+			<div class="content">
+				<div class="container-fluid">
+					<form class="inp">
+						<br>
+						<label class="word" onclick="reg()">註冊</label>
+						<label class="word" onclick="sign()">登入</label>
+						<label class="word" onclick="guest()">返回訪客模式</label>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -46,19 +52,19 @@
 				<br>
 				<label class="word">
 					e-mail:
-					<label class="word" style="display:inline;color: rgb(117, 117, 117)"> (作為帳號使用) </label>
+					<label class="word" style="display:inline;color: rgb(117, 117, 117)">
+						(作為帳號使用)
+					</label>
 				</label>
 				<input type="text" class="" placeholder="請輸入e-mail" id="">
-
 				<label class="word">密碼:</label>
 				<input type="text" class="" placeholder="請輸入密碼" id="">
-
 				<label class="word">再次確認密碼:</label>
 				<input type="text" class="" placeholder="請再次輸入密碼" id="">
-
-				<br>
-				<br>
+				<br><br>
 				<input type="button" value="註冊" onclick="index()">
+				<br><br>
+				<a class="" onclick="sign()">已有帳號?</a>
 			</form>
 		</div>
 	</div>

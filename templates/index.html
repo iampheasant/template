@@ -9,7 +9,6 @@
 	<!-- CSS only -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -30,26 +29,26 @@
 					</button>
 				</div>
 				<div class="modal-body content">
-					<form class="inp">
-					<label class="word">商品圖片:</label>
-					<input type="file" class="" id="img">
-					<input type="button" class="" value="新增圖片" id="imgClick" onclick="img.click()">
-					<br>
-					<img class="img" src="" alt="">
+					<form class="inp" id="form">
+						<label class="word">商品圖片:</label>
+						<input type="file" class="" id="img">
+						<input type="button" class="" value="新增圖片" id="imgClick" onclick="img.click()">
+						<br>
+						<img class="img" src="" alt="">
 
-					<label class="word">商品名稱:</label>
-					<input type="text" class="" placeholder="請輸入商品名稱" id="name">
+						<label class="word">商品名稱:</label>
+						<input type="text" class="" placeholder="請輸入商品名稱" id="name">
 
-					<label class="word">商品價格:</label>
-					<input type="text" class="" placeholder="請輸入商品價格" id="price">
+						<label class="word">商品價格:</label>
+						<input type="text" class="" placeholder="請輸入商品價格" id="price">
 
-					<label class="word">購買數量:</label>
-					<input type="text" class="" placeholder="請輸入購買數量" id="number">
-				</form>
+						<label class="word">購買數量:</label>
+						<input type="text" class="" placeholder="請輸入購買數量" id="number">
+					</form>
 				</div>
 				<div class="modal-footer">
-					<button id="cancel" data-dismiss="modal">關閉</button>
-					<button id="send" onclick="addList()">新增</button>
+					<button type="submit" id="cancel" data-dismiss="modal">關閉</button>
+					<button type="submit" id="send" onclick="addList()">新增</button>
 				</div>
 			</div>
 		</div>
@@ -69,8 +68,13 @@
 				<label>會員</label>
 				<label>，您好！</label>
 			</nav>
-			<div class="content left relative">
-				<div onclick="guest()">登出</div>
+			<div class="content">
+				<div class="container-fluid">
+					<form class="inp">
+						<br>
+						<label class="word" onclick="guest()">登出</label>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -85,8 +89,7 @@
 							<br>
 							<input type="button" value="新增一筆目標金額" onclick="addInput(this)">
 							<input type="button" value="刪除一筆目標金額" id="delInp" onclick="cutInput()">
-							<br>
-							<input type="text" placeholder="請輸入目標購物金額" id="threshold_0">
+							<input type="text" placeholder="請輸入購物目標金額" id="threshold_0">
 						</form>						
 					</div>
 				</div>

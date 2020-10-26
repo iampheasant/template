@@ -55,7 +55,7 @@
 		</div>
 	</div>
 	<!-- 導覽列 -->
-	<div>
+	<div id="coll"><div id="mem">
 		<nav class="mynavbar navbar-dark">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myCarousel" aria-controls="myCarousel" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -66,14 +66,26 @@
 		</nav>
 		<div class="collapse position-fixed" id="myCarousel">
 			<nav class="mynavbar navbar-dark">
-				<label>遊客登入</label>
+				<label>訪客登入</label>
 			</nav>
-			<div class="content left relative">
-				<div onclick="reg()">註冊</div>
-				<div onclick="sign()">登入</div>
+			<div class="content">
+				<div class="container-fluid">
+					<form class="inp">
+						<br>
+						<label class="word">e-mail:</label>
+						<input type="text" class="" placeholder="請輸入e-mail" id="">
+						<label class="word">密碼:</label>
+						<input type="text" class="" placeholder="請輸入密碼" id="">
+						<br><br>
+						<input type="button" value="登入" onclick="index()">
+						<br><br>
+						<a class="" onclick="reg()">還沒有帳號?</a>
+					</form>
+				</div>
 			</div>
 		</div>
-	</div>
+	</div></div>
+	
 	<!-- 內容 -->
 	<div class="content">
 		<div id="mycarousel" class="carousel slide" data-wrap="false" data-interval="false">
@@ -86,7 +98,7 @@
 							<input type="button" value="新增一筆目標金額" onclick="addInput(this)">
 							<input type="button" value="刪除一筆目標金額" id="delInp" onclick="cutInput()">
 							<br>
-							<input type="text" placeholder="請輸入目標購物金額" id="threshold_0">
+							<input type="text" placeholder="請輸入購物目標金額" id="threshold_0">
 						</form>						
 					</div>
 				</div>
@@ -132,7 +144,7 @@
 	</nav>
 	<script type="text/javascript" src="static/js/main.js"></script>
 	<!-- jQuery and JS bundle w/ Popper.js -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 </body>
 </html>
