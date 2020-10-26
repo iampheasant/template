@@ -1,11 +1,11 @@
 var firebaseConfig  = {
-    apiKey: "api-key",	//api-key
+	apiKey: "AIzaSyCKKVyud0oO0nURPocDNJFjBJ0N9s5NMVA",	//api-key
 	authDomain: "test1-73089.firebaseapp.com",	//project-id.firebaseapp.com
 	databaseURL: "https://test1-73089.firebaseio.com/",	//https://project-id.firebaseio.com
 	projectId: "test1-73089",	//project-id
 	storageBucket: "test1-73089.appspot.com",	//project-id.appspot.com
 	messagingSenderId: "sender-id",	//sender-id
-	appID: "app-id",	//app-id
+	appID: "test1-73089",	//app-id
 };
 firebase.initializeApp(firebaseConfig);
 var db = firebase.database();
@@ -19,16 +19,14 @@ window.onload = function(){
 	readGoods();
 	readGoods_2();
 	ShowTime();
+	Resize();
 }
-//調整內容的頂高
+//調整內容的底高
 function Resize() {
+	$("body").css("margin-top",$(".navbar-fixed-top").height());
 	$("body").css("margin-bottom",$(".navbar_2").height());
 }
-$(window).resize(Resize);
-//跳到內容頁面
-function index() {
-	window.location.assign("index");
-}
+
 //跳到註冊頁面
 function reg() {
 	window.location.assign("reg");
@@ -49,7 +47,7 @@ function addInput(obj)
 		var new_element = document.createElement("input");
 		//設定這個input的屬性
 		new_element.setAttribute("type","text");
-		new_element.setAttribute("placeholder","請輸入目標購物金額");
+		new_element.setAttribute("placeholder","請輸入購物目標金額");
 		new_element.setAttribute("id","threshold_" + input_count);
 		//最後再使用appendChild加到要加的form裡
 		obj.form.appendChild(new_element);
@@ -83,12 +81,22 @@ function readGoods() {
 					<div class="col-xs-8">
 						<div class="row">
 							<div class="col-xs-9"><p class="card-text left">商品: ${goodsValue.name}</p></div>
-							<div class="col-xs-3"><button id="updateGoods" onclick="updateGoods()">編</button></div>
+							<div class="col-xs-3">
+								<svg id="updateGoods" onclick="updateGoods()" id="updateGoods"width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+									<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+								</svg>
+							</div>
 						</div>
 						<p class="card-text left" id="price_p">價格: ${goodsValue.price}元</p>
 						<div class="row">
 							<div class="col-xs-9"><p class="card-text left">數量: ${goodsValue.number}個</p></div>
-							<div class="col-xs-3"><button id="deleteGoods" onclick="deleteGoods(${goodsValue.id})">刪</button></div>
+							<div class="col-xs-3">
+								<svg id="deleteGoods" onclick="deleteGoods()" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+									<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+								</svg>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -130,12 +138,11 @@ function ShowTime(){
 //按"新增商品"，增加商品詳細資訊進資料庫，並跳出新增成功視窗
 function addList(img, name, price,number) {
 	counter++;
-	console.log(d);
-	console.log(t);
-	console.log(counter);
+	// var account_number = counter.value.toString();
 	db.ref('addList/' + counter).set({
-		img: document.getElementById("img").value, 
-		name: document.getElementById("name").value, 
+		// id: document.getElementById("counter").value,
+		img: document.getElementById("img").value,
+		name: document.getElementById("name").value,
 		price: document.getElementById("price").value,
 		number: document.getElementById("number").value
 	})
@@ -152,8 +159,8 @@ function addList(img, name, price,number) {
 //導覽列動畫
 const $menu = $('#myCarousel');
 $menu.on('show.bs.collapse', function () {
-  $menu.addClass('menu-show');
+	$menu.addClass('menu-show');
 });
 $menu.on('hide.bs.collapse', function () {
-  $menu.removeClass('menu-show');
+	$menu.removeClass('menu-show');
 });
