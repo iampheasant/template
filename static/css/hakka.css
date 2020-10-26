@@ -75,20 +75,10 @@
 	border-radius: 	5px;
 }
 #updateGoods{
-	background-color: #fe5722;
-	border: none;
-    text-align: center;
-	font-family: 微軟正黑體;
-    color: #fff;
-    border-radius: 	5px;
+	color: #6c6c6c;
 }
 #deleteGoods{
-	background-color: #bababa;
-	border: none;
-    text-align: center;
-	font-family: 微軟正黑體;
-    color: #fff;
-    border-radius: 	5px;
+	color: #6c6c6c;
 }
 /*文字*/
 .word{
@@ -124,6 +114,7 @@
 /*form表單裡的text*/
 .inp>input[type="text"]{
 	text-align: left;
+	color: rgb(59, 59, 59);
 }
 /*form表單裡的button*/
 .inp>input[type="button"]{
@@ -188,7 +179,6 @@
 	background-color: #fff;
 	z-index: 9999;
 }
-
 #myCarousel.menu-show{
 	transform: translateX(0%);
 }
