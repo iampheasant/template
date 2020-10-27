@@ -154,7 +154,7 @@
 	border: 1px solid #bababa;
 	border-radius: 0;
 }
-.card:hover{
+.mycard:hover{
 	background-color: #FFE7C0;
 }
 /*圖片靠左*/
