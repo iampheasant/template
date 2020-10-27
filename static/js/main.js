@@ -92,7 +92,7 @@ function readGoods() {
 						<div class="row">
 							<div class="col-xs-9"><p class="card-text left">數量: ${goodsValue.number}個</p></div>
 							<div class="col-xs-3">
-								<svg id="deleteGoods" onclick="deleteGoods()" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<svg id="deleteGoods" onclick="deleteGoods('${goodsValue.id}')" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 									<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
 									<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 								</svg>
@@ -132,29 +132,36 @@ function readGoods_2() {
 	});
 }
 //顯示時間
-function ShowTime(){
+function ShowTime() {
 	document.getElementById('showbox').innerHTML = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate() + "/&nbsp" + d.getHours() + ":" + d.getMinutes();
 }
 //按"新增商品"，增加商品詳細資訊進資料庫，並跳出新增成功視窗
 function addList(img, name, price,number) {
 	counter++;
-	// var account_number = counter.value.toString();
-	db.ref('addList/' + counter).set({
-		// id: document.getElementById("counter").value,
+	var id = counter;
+	db.ref('addList/' + id).set({
+		id: counter,
 		img: document.getElementById("img").value,
 		name: document.getElementById("name").value,
 		price: document.getElementById("price").value,
 		number: document.getElementById("number").value
 	})
-	.then(function () {
+	.then(function() {
 		Swal.fire({
 			icon: 'success',
 			title: '商品新增成功',
 			showConfirmButton: false,
 			timer: 1200
 		});
-	})
-	;
+	});
+}
+function deleteGoods(id)
+{
+	var goods = firebase.database().ref('addList/' + id);
+	goods.remove();
+	document.getElementById("cardSection").innerHTML='';
+	readGoods();
+	// console.log(id);
 }
 //導覽列動畫
 const $menu = $('#myCarousel');
