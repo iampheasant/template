@@ -74,6 +74,30 @@
 	color: #fff;
 	border-radius: 	5px;
 }
+#send_2{
+	line-height: 100%;
+	padding: 3%;
+	width: 20%;
+	background-color: #fe5722;
+	border: none;
+	text-align: center;
+	font-family: 微軟正黑體;
+	font-size: 100%;
+	color: #fff;
+	border-radius: 	5px;
+}
+#cancel_2{
+	line-height: 100%;
+	padding: 3%;
+	width: 20%;
+	background-color: #bababa;
+	border: none;
+	text-align: center;
+	font-family: 微軟正黑體;
+	font-size: 100%;
+	color: #fff;
+	border-radius: 	5px;
+}
 #updateGoods{
 	color: #6c6c6c;
 }
