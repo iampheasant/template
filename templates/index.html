@@ -53,6 +53,29 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="exampleModal_2" tabindex="-1" role="dialog" aria-labelledby="exampleModal_2Label" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<label class="modal-title relative" id="exampleModal_2Label">新增商品</label>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-body content">
+					<form class="inp" id="form">
+						<label class="word">目標購物金額:</label>
+						<input type="text" class="" placeholder="請輸入目標購物金額" id="threshold">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" id="cancel" data-dismiss="modal">關閉</button>
+					<button type="submit" id="send" onclick="addThreshold()">新增</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- 導覽列 -->
 	<div>
 		<nav class="mynavbar navbar-dark">
@@ -80,18 +103,22 @@
 	</div>
 	<!-- 內容 -->
 	<div class="content">
-		<div id="mycarousel" class="carousel slide" data-wrap="false" data-interval="false">
+		<div id="carousel" class="carousel slide" data-wrap="false" data-interval="false">
 			<div class="carousel-inner">
 				<!-- 輸入金額門檻 -->
 				<div class="item active">
 					<div class="container-fluid">
-						<form class="inp">
+						<!-- 新增商品按鈕 -->
+						<div class="inp">
 							<br>
-							<input type="button" value="新增一筆目標金額" onclick="addInput(this)">
+							<input type="button" value="新增一筆目標金額" data-toggle="modal" data-target="#exampleModal_2" data-whatever="@mdo">
 							<input type="button" value="刪除一筆目標金額" id="delInp" onclick="cutInput()">
-							<input type="text" placeholder="請輸入購物目標金額" id="threshold_0">
-						</form>						
+							<div class="row"></div>
+						</div>
+						<br>
 					</div>
+					<!-- 卡片清單 -->
+					<div id="cardThreshold"></div>
 				</div>
 				<!-- 商品清單 -->
 				<div class="item">
@@ -125,14 +152,15 @@
 	<br><br><br>
 	<!-- 底部導覽列 -->
 	<nav class="navbar_2 navbar-dark navbar-fixed-bottom">
-		<a href="#mycarousel" role="button" data-slide="prev">
+		<a href="#carousel" role="button" data-slide="prev">
 			<button class="bt ll">上一步</button>
 		</a>
 		<span id="showbox"></span>
-		<a href="#mycarousel" role="button" data-slide="next">
+		<a href="#carousel" role="button" data-slide="next">
 			<button class="bt rr">下一步</button>
 		</a>
 	</nav>
+
 	<script type="text/javascript" src="static/js/main.js"></script>
 	<!-- jQuery and JS bundle w/ Popper.js -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
