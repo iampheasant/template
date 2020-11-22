@@ -140,6 +140,11 @@
 	text-align: left;
 	color: rgb(59, 59, 59);
 }
+/*form表單裡的password*/
+.inp>input[type="password"]{
+	text-align: left;
+	color: rgb(59, 59, 59);
+}
 /*form表單裡的button*/
 .inp>input[type="button"]{
 	background-color: #fe5722;
