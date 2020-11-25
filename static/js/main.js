@@ -62,27 +62,26 @@ function index() {
 	});
 }
 //按"新增一筆目標金額"，增加input的數量
-function addInput(obj) {
-	if (input_count < 4) {
-		input_count++;
-		var new_element = document.createElement("input");
-		//設定這個input的屬性
-		new_element.setAttribute("type","text");
-		new_element.setAttribute("placeholder","請輸入購物目標金額");
-		new_element.setAttribute("id","threshold_" + input_count);
-		//最後再使用appendChild加到要加的form的最末端裡
-		obj.form.appendChild(new_element);
-	}
+// function addInput(obj) {
+// 	if (input_count < 4) {
+// 		input_count++;
+// 		var new_element = document.createElement("input");
+// 		//設定這個input的屬性
+// 		new_element.setAttribute("type","text");
+// 		new_element.setAttribute("placeholder","請輸入購物目標金額");
+// 		new_element.setAttribute("id","threshold_" + input_count);
+// 		//最後再使用appendChild加到要加的form的最末端裡
+// 		obj.form.appendChild(new_element);
+// 	}
 	
-}
+// }
 //按"新增商品"，增加商品詳細資訊進資料庫，並跳出新增成功視窗
 function addThreshold(threshold) {
 	if(input_count < 5) {
-		console.log(input_count);
 		input_count++;
 		var id = input_count;
 		db.ref('addThreshold/' + input_count).set({
-			id: counter,
+			id: input_count,
 			threshold: document.getElementById("threshold").value
 		})
 		.then(function() {
@@ -94,6 +93,7 @@ function addThreshold(threshold) {
 			});
 		});
 		reset();
+		console.log(input_count);
 	}
 	else if(input_count = 6){
 		Swal.fire({
@@ -102,19 +102,49 @@ function addThreshold(threshold) {
 			})
 	}
 }
-//按"刪除一筆目標金額"，減少input的數量
-function cutInput(id) {
-	if (input_count > 0) {
-		var str = firebase.database().ref('addThreshold/' + id);
-		console.log(str);
-		str.remove();
-		readThreshold();
+function deleteThreshold(id) {
+	var threshold = firebase.database().ref('addThreshold/' + id);
+	threshold.remove()
+	.then(function() {
 		input_count--;
-	}
-	else{
-		return false;
-	}
+	});
+	document.getElementById("cardThreshold").innerHTML='';
+	readThreshold();
+	console.log(input_count);
 }
+//從資料庫讀取商品內容，並以card逐個顯示，並有編輯刪除按鈕
+function readThreshold() {
+	var threshold = firebase.database().ref("addThreshold");
+	threshold.on("child_added",function(data){
+		var thresholdValue = data.val();
+
+		document.getElementById("cardThreshold").innerHTML+=
+		`
+			<div class="mycard md-3 relative" id="${thresholdValue.id}">
+				<div class="row">
+					<div class="col-xs-9"><p class="card-text left">目標金額: ${thresholdValue.threshold}</p></div>
+					<div class="col-xs-3">
+						<svg id="deleteThreshold" onclick="deleteThreshold('${thresholdValue.id}')" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+							<path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		`
+	});
+}
+//按"刪除一筆目標金額"，減少input的數量
+// function cutInput(id) {
+// 	if (input_count > 0) {
+// 		var str = document.getElementById(input_count);
+// 		str.remove();
+// 		input_count--;
+// 	}
+// 	else{
+// 		return false;
+// 	}
+// }
 //從資料庫讀取商品內容，並以card逐個顯示，並有編輯刪除按鈕
 function readGoods() {
 	var goods = firebase.database().ref("addList");
@@ -175,22 +205,6 @@ function readGoods() {
 						<button type="submit" id="cancel_2" data-toggle="collapse" data-target="#goodsValue.name" aria-expanded="false" aria-controls="form_2">取消</button>
 						<button type="submit" id="send_2">完成</button>
 					</div>
-				</div>
-			</div>
-		`
-	});
-}
-//從資料庫讀取商品內容，並以card逐個顯示，並有編輯刪除按鈕
-function readThreshold() {
-	var threshold = firebase.database().ref("addThreshold");
-	threshold.on("child_added",function(data){
-		var thresholdValue = data.val();
-
-		document.getElementById("cardThreshold").innerHTML+=
-		`
-			<div class="mycard md-3 relative" id="${thresholdValue.id}">
-				<div class="row">
-					<div class="col-xs-9"><p class="card-text left">目標金額: ${thresholdValue.threshold}</p></div>
 				</div>
 			</div>
 		`
