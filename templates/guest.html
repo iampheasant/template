@@ -18,9 +18,9 @@
 	<title>hakka</title>
 </head>
 <body>
+	<!-- 新增商品視窗 -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-
 			<div class="modal-content">
 				<div class="modal-header">
 					<label class="modal-title relative" id="exampleModalLabel">新增商品</label>
@@ -53,9 +53,9 @@
 			</div>
 		</div>
 	</div>
+	<!-- 新增目標金額視窗 -->
 	<div class="modal fade" id="exampleModal_2" tabindex="-1" role="dialog" aria-labelledby="exampleModal_2Label" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-
 			<div class="modal-content">
 				<div class="modal-header">
 					<label class="modal-title relative" id="exampleModal_2Label">新增商品</label>
@@ -64,7 +64,7 @@
 					</button>
 				</div>
 				<div class="modal-body content">
-					<form class="inp" id="form">
+					<form class="inp" id="form_2">
 						<label class="word">目標購物金額:</label>
 						<input type="text" class="" placeholder="請輸入目標購物金額" id="threshold">
 					</form>
@@ -79,18 +79,21 @@
 	<!-- 導覽列 -->
 	<div>
 		<nav class="mynavbar navbar-dark">
+			<!-- 彈出按鈕 -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myCarousel" aria-controls="myCarousel" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
+			<!-- 導覽列標題 -->
 			<div class="navbar-header">
 				<div class="relative">勤儉持家的好女人</div> 
 			</div>
 		</nav>
 		<div class="collapse position-fixed" id="myCarousel">
+			<!-- 導覽列彈出標題 -->
 			<nav class="mynavbar navbar-dark">
-				<label>會員</label>
-				<label>，您好！</label>
+				<label>訪客登入</label>
 			</nav>
+			<!-- 導覽列彈出內文 -->
 			<div class="content">
 				<div class="container-fluid">
 					<form class="inp">
@@ -112,22 +115,22 @@
 	<div class="content">
 		<div id="carousel" class="carousel slide" data-wrap="false" data-interval="false">
 			<div class="carousel-inner">
-				<!-- 輸入金額門檻 -->
+				<!-- 金額門檻 -->
 				<div class="item active">
 					<div class="container-fluid">
-						<!-- 新增商品按鈕 -->
+						<!-- 新增目標金額按鈕 -->
 						<div class="inp">
 							<br>
 							<input type="button" value="新增一筆目標金額" data-toggle="modal" data-target="#exampleModal_2" data-whatever="@mdo">
-							<input type="button" value="刪除一筆目標金額" id="delInp" onclick="cutInput()">
+							<input type="button" value="刪除一筆目標金額" id="delInp"  onclick="deleteThreshold('${thresholdValue.id}')">
 							<div class="row"></div>
 						</div>
 						<br>
 					</div>
-					<!-- 卡片清單 -->
+					<!-- 目標金額卡片清單 -->
 					<div id="cardThreshold"></div>
 				</div>
-				<!-- 商品清單 -->
+				<!-- 商品 -->
 				<div class="item">
 					<div class="container-fluid">
 						<!-- 新增商品按鈕 -->
@@ -138,7 +141,7 @@
 						</div>
 						<br>
 					</div>
-					<!-- 卡片清單 -->
+					<!-- 商品卡片清單 -->
 					<div id="cardSection"></div>
 				</div>
 				<!-- 確認清單 -->
@@ -162,6 +165,7 @@
 		<a href="#carousel" role="button" data-slide="prev">
 			<button class="bt ll">上一步</button>
 		</a>
+		<!-- 時間顯示位置 -->
 		<span id="showbox"></span>
 		<a href="#carousel" role="button" data-slide="next">
 			<button class="bt rr">下一步</button>
