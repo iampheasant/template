@@ -50,6 +50,7 @@
 	border: 1px solid #fff;
 	color: #fff;
 }
+/*新增商品視窗中新增按鈕*/
 #send{
 	line-height: 100%;
 	padding: 3%;
@@ -61,7 +62,7 @@
 	font-size: 150%;
 	color: #fff;
 	border-radius: 	5px;
-}
+}/*新增商品視窗中關閉按鈕*/
 #cancel{
 	line-height: 100%;
 	padding: 3%;
@@ -74,6 +75,7 @@
 	color: #fff;
 	border-radius: 	5px;
 }
+/*card展開後完成按鈕*/
 #send_2{
 	line-height: 100%;
 	padding: 3%;
@@ -86,6 +88,7 @@
 	color: #fff;
 	border-radius: 	5px;
 }
+/*card展開後取消按鈕*/
 #cancel_2{
 	line-height: 100%;
 	padding: 3%;
@@ -166,6 +169,7 @@
 	text-align: left;
 	color: rgb(59, 59, 59);
 }
+/*card價格文字*/
 #price_p{
 	margin-bottom: 0;
 }
@@ -190,6 +194,7 @@
 .ll{
 	float:left;
 }
+/*圖片靠右*/
 .rr{
 	float: right;
 }
@@ -198,6 +203,7 @@
 	position: relative;
 	left: 10%;
 }
+/*導覽列樣式*/
 #myCarousel{
 	transform: translateX(-100%);
 	transition: transform .35s ease;
@@ -207,7 +213,7 @@
 	min-height: 100%;
 	background-color: #fff;
 	z-index: 9999;
-}
+}/*導覽列出現後位置的基準線*/
 #myCarousel.menu-show{
 	transform: translateX(0%);
 }
